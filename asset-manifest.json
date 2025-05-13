@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Salary-Tax-Calculator/static/js/main.0776b781.js",
+    "main.js": "/Salary-Tax-Calculator/static/js/main.0f14db61.js",
     "index.html": "/Salary-Tax-Calculator/index.html",
-    "main.0776b781.js.map": "/Salary-Tax-Calculator/static/js/main.0776b781.js.map"
+    "main.0f14db61.js.map": "/Salary-Tax-Calculator/static/js/main.0f14db61.js.map"
   },
   "entrypoints": [
-    "static/js/main.0776b781.js"
+    "static/js/main.0f14db61.js"
   ]
 }
