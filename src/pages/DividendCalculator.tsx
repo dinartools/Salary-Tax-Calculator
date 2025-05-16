@@ -79,15 +79,13 @@ const DividendCalculator: React.FC = () => {
     // 查詢現價與配息
     setStocks(stocks => stocks.map((s, i) => i === idx ? { ...s, priceLoading: true, loading: true, priceError: '', error: '' } : s));
     try {
-      // 查現價
-      const url = `https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_${code}.tw`;
-      const resp = await fetch(url);
+      // 改用 openapi.twse.com.tw
+      const resp = await fetch('https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL');
       const data = await resp.json();
-      const arr = data.msgArray;
-      let price = 0;
-      let priceError = '';
-      if (arr && arr.length > 0 && arr[0].z) {
-        price = parseFloat(arr[0].z);
+      const stock = data.find((item: any) => item.Code === code);
+      let price = 0, priceError = '';
+      if (stock && stock['ClosingPrice']) {
+        price = parseFloat(stock['ClosingPrice']);
       } else {
         priceError = '查無現價';
       }
